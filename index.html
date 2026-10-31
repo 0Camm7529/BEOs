@@ -282,6 +282,24 @@
             .app-description { font-size: 0.85rem; }
             .action-badge { width: 36px; height: 36px; font-size: 0.85rem; }
         }
+  /* Đảm bảo khung trang ôm trọn chiều cao màn hình */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Đẩy dòng copyright xuống sát đáy */
+.footer {
+    margin-top: auto;
+    padding: 24px 20px 16px;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    font-weight: 500;
+    z-index: 1;
+}
+
     </style>
 </head>
 <body>
@@ -326,6 +344,8 @@
             </a>
         </div>
     </main>
-
+    <footer class="footer">
+        <p>© 2026 BEOs Studio. Bản quyền thuộc về BEOs Studio - Nguyễn Hoàng Nhựt, UI/UX by AI.</p>
+    </footer>
 </body>
 </html>
