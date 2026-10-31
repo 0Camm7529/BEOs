@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BEOs - Trung tâm ứng dụng</title>
-    <!-- Google Font: Plus Jakarta Sans -->
+    <title>BEOs Studio - Trung tâm chuyển hướng</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -41,7 +39,6 @@
             overflow-x: hidden;
         }
 
-        /* Ambient Background Effect */
         .ambient-glow {
             position: absolute;
             width: 800px;
@@ -55,7 +52,6 @@
             filter: blur(80px);
         }
 
-        /* Top Navbar */
         .navbar {
             width: 100%;
             padding: 32px 48px;
@@ -71,7 +67,6 @@
             text-decoration: none;
         }
 
-        /* Khung chứa logo ảnh */
         .logo-box {
             width: 52px;
             height: 52px;
@@ -85,7 +80,6 @@
             padding: 6px;
         }
 
-        /* Ảnh logo ImgBB */
         .logo-img {
             width: 100%;
             height: 100%;
@@ -102,7 +96,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Main Container */
         .main-content {
             flex: 1;
             width: 100%;
@@ -115,7 +108,6 @@
             z-index: 1;
         }
 
-        /* Hero Text ở giữa */
         .hero-section {
             text-align: center;
             margin-bottom: 50px;
@@ -132,7 +124,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Danh mục Ứng dụng */
         .category-header {
             display: flex;
             align-items: center;
@@ -161,7 +152,6 @@
             font-weight: 600;
         }
 
-        /* Danh sách ứng dụng */
         .app-list {
             display: flex;
             flex-direction: column;
@@ -278,65 +268,19 @@
             box-shadow: 0 0 16px var(--primary-glow);
         }
 
-        /* Mobile Responsive */
         @media (max-width: 768px) {
-            .navbar {
-                padding: 20px 20px;
-            }
-
-            .logo-box {
-                width: 44px;
-                height: 44px;
-                padding: 4px;
-            }
-
-            .brand-title {
-                font-size: 1.35rem;
-            }
-
-            .main-content {
-                justify-content: flex-start;
-                padding: 15px 20px 40px;
-            }
-
-            .hero-section {
-                text-align: left;
-                margin-bottom: 30px;
-            }
-
-            .hero-text {
-                font-size: 1.25rem;
-            }
-
-            .category-title {
-                font-size: 1.1rem;
-            }
-
-            .app-card {
-                padding: 16px 20px;
-                border-radius: 18px;
-            }
-
-            .app-icon-wrapper {
-                width: 46px;
-                height: 46px;
-                font-size: 1.3rem;
-                border-radius: 14px;
-            }
-
-            .app-title {
-                font-size: 1rem;
-            }
-
-            .app-description {
-                font-size: 0.85rem;
-            }
-
-            .action-badge {
-                width: 36px;
-                height: 36px;
-                font-size: 0.85rem;
-            }
+            .navbar { padding: 20px 20px; }
+            .logo-box { width: 44px; height: 44px; padding: 4px; }
+            .brand-title { font-size: 1.35rem; }
+            .main-content { justify-content: flex-start; padding: 15px 20px 40px; }
+            .hero-section { text-align: left; margin-bottom: 30px; }
+            .hero-text { font-size: 1.25rem; }
+            .category-title { font-size: 1.1rem; }
+            .app-card { padding: 16px 20px; border-radius: 18px; }
+            .app-icon-wrapper { width: 46px; height: 46px; font-size: 1.3rem; border-radius: 14px; }
+            .app-title { font-size: 1rem; }
+            .app-description { font-size: 0.85rem; }
+            .action-badge { width: 36px; height: 36px; font-size: 0.85rem; }
         }
     </style>
 </head>
@@ -344,26 +288,20 @@
 
     <div class="ambient-glow"></div>
 
-    <!-- Header: Logo ImgBB + Tiêu đề BEOs Studio -->
     <header class="navbar">
-        <a href="#" class="brand-logo-group">
+        <a href="index.html" class="brand-logo-group">
             <div class="logo-box">
-                <img src="https://i.ibb.co/wZCvWpt4/file-000000007c6071fa9e41573272c5624a.png" 
-                     alt="BEOs Studio Logo" 
-                     class="logo-img">
+                <img src="https://i.ibb.co/wZCvWpt4/file-000000007c6071fa9e41573272c5624a.png" alt="BEOs Studio Logo" class="logo-img">
             </div>
             <span class="brand-title">BEOs Studio</span>
         </a>
     </header>
 
-    <!-- Nội dung chính -->
     <main class="main-content">
-        <!-- Dòng chữ giữa -->
         <div class="hero-section">
             <p class="hero-text">Trung tâm chuyển hướng các ứng dụng</p>
         </div>
 
-        <!-- Section Ứng dụng -->
         <div class="category-header">
             <h2 class="category-title">
                 <i class="fa-solid fa-layer-group"></i> Ứng dụng
@@ -372,8 +310,8 @@
         </div>
 
         <div class="app-list">
-            <!-- Ô ngang Azota -->
-            <a href="azota.html" target="_blank" class="app-card">
+            <!-- Đã bỏ target="_blank" để mở ngay trong tab hiện tại -->
+            <a href="azota.html" class="app-card">
                 <div class="app-main-info">
                     <div class="app-icon-wrapper icon-azota">
                         <i class="fa-solid fa-file-pen"></i>
