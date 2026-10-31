@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Góc Học Tập - Personal Study Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --accent: #10b981;
+            --radius: 16px;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header / Navbar */
+        header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px 0 40px;
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-text h1 span {
+            color: var(--primary);
+        }
+
+        .hero-text p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .badge {
+            background: #eef2ff;
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .profile-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 16px;
+            background: #e0e7ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--primary);
+            border: 3px solid var(--primary);
+        }
+
+        .profile-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+
+        .profile-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+
+        .quote-box {
+            background: #f1f5f9;
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-style: italic;
+            font-size: 0.85rem;
+            color: #475569;
+            border-left: 3px solid var(--primary);
+        }
+
+        /* Grid Sections */
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 40px 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: var(--primary);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px -5px rgba(0,0,0,0.08);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .card-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: #eef2ff;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+        }
+
+        /* Subject Links / Resources */
+        .resource-list {
+            list-style: none;
+        }
+
+        .resource-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .resource-item:last-child {
+            border-bottom: none;
+        }
+
+        .resource-item a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+
+        .resource-item a:hover {
+            color: var(--primary);
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 12px;
+            background: #f1f5f9;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        /* Study Tools: Pomodoro & To-Do */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* Pomodoro Widget */
+        .pomodoro-container {
+            text-align: center;
+        }
+
+        .timer-display {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: 1px;
+            margin: 15px 0;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .timer-btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--primary-hover);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            background: #f1f5f9;
+            color: var(--text-main);
+        }
+
+        /* To-Do List Widget */
+        .todo-input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .todo-input-group input {
+            flex: 1;
+            padding: 10px 14px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            outline: none;
+            font-size: 0.95rem;
+        }
+
+        .todo-input-group input:focus {
+            border-color: var(--primary);
+        }
+
+        .todo-list {
+            list-style: none;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .todo-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 10px;
+            border-radius: 8px;
+            background: #f8fafc;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .todo-item.completed span {
+            text-decoration: line-through;
+            color: var(--text-muted);
+        }
+
+        .todo-item input[type="checkbox"] {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .delete-btn {
+            color: #ef4444;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            padding: 24px 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 850px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-graduation-cap"></i> MyStudySpace
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">Giới thiệu</a></li>
+                <li><a href="#goals">Mục tiêu</a></li>
+                <li><a href="#resources">Góc học tập</a></li>
+                <li><a href="#tools">Công cụ</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section id="about" class="hero">
+            <div class="hero-text">
+                <div class="hero-badges">
+                    <span class="badge"><i class="fa-solid fa-fire"></i> Quyết tâm 2026</span>
+                    <span class="badge"><i class="fa-solid fa-book-open"></i> Học sinh THPT</span>
+                </div>
+                <h1>Chào mừng bạn đến với <span>Góc Học Tập</span> cá nhân</h1>
+                <p>Nơi lưu trữ ghi chú, theo dõi tiến độ ôn thi, lập kế hoạch bài giảng và chia sẻ tài liệu học tập mỗi ngày.</p>
+                <div style="display: flex; gap: 12px;">
+                    <a href="#tools" class="btn" style="text-decoration: none;">Bắt đầu học tập</a>
+                    <a href="#resources" class="btn btn-outline" style="text-decoration: none;">Xem tài liệu</a>
+                </div>
+            </div>
+
+            <!-- Profile Card -->
+            <div class="profile-card">
+                <div class="avatar">
+                    <i class="fa-solid fa-user-ninja"></i>
+                </div>
+                <h3>Hoàng Nhựt</h3>
+                <p>Học sinh THPT | Vĩnh Long</p>
+                <div class="quote-box">
+                    "Hành trình vạn dặm bắt đầu từ một bước chân. Học hết sức, chơi hết mình!"
+                </div>
+            </div>
+        </section>
+
+        <!-- Goals Section -->
+        <h2 class="section-title" id="goals"><i class="fa-solid fa-bullseye"></i> Mục tiêu trọng tâm</h2>
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-award"></i></div>
+                    <div>
+                        <h3>Kỳ thi Tốt nghiệp THPT</h3>
+                        <small style="color: var(--text-muted);">Mục tiêu tổng quát</small>
+                    </div>
+                </div>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Ôn luyện toàn diện 4 môn thi chính: Toán, Ngữ Văn, Tiếng Anh và Khoa học Tự nhiên.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
+                    <div>
+                        <h3>Đánh giá năng lực (V-ACT)</h3>
+                        <small style="color: var(--text-muted);">Kỳ thi ĐHQG-HCM</small>
+                    </div>
+                </div>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Luyện đề tư duy định lượng, định tính và giải quyết vấn đề thực tế.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                    <div>
+                        <h3>Kỹ năng & Dự án</h3>
+                        <small style="color: var(--text-muted);">Phát triển bản thân</small>
+                    </div>
+                </div>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Học lập trình web, thực hành Hóa học ứng dụng và thiết kế slide thuyết trình.</p>
+            </div>
+        </div>
+
+        <!-- Resources Section -->
+        <h2 class="section-title" id="resources"><i class="fa-solid fa-folder-open"></i> Góc Học Tập & Tài nguyên</h2>
+        <div class="grid-3">
+            <!-- Môn Toán & KHTN -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-calculator"></i></div>
+                    <h3>Toán & Tự nhiên</h3>
+                </div>
+                <ul class="resource-list">
+                    <li class="resource-item">
+                        <a href="#"><i class="fa-regular fa-file-pdf"></i> Công thức Xác suất - Thống kê</a>
+                        <span class="tag">Toán</span>
+                    </li>
+                    <li class="resource-item">
+                        <a href="#"><i class="fa-regular fa-file-lines"></i> Sơ đồ tư duy Hóa hữu cơ</a>
+                        <span class="tag">Hóa học</span>
+                    </li>
+                    <li class="resource-item">
+                        <a href="#"><i class="fa-regular fa-lightbulb"></i> Mẹo bấm máy Casio nhanh</a>
+                        <span class="tag">Mẹo</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Môn Ngữ Văn & Tiếng Anh -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-pen-nib"></i></div>
+                    <h3>Ngữ Văn & Ngoại ngữ</h3>
+                </div>
+                <ul class="resource-list">
+                    <li class="resource-item">
+                        <a href="#"><i class="fa-regular fa-file-word"></i> Dàn ý tác phẩm Tây Tiến</a>
+                        <span class="tag">Ngữ văn</span>
+                    </li>
+                    <li class="resource-item">
+                        <a href="#"><i class="fa-regular fa-file-lines"></i> Tổng hợp 12 thì Tiếng Anh</a>
+                        <span class="tag">English</span>
+                    </li>
+                    <li class="resource-item">
+                        <a href="#"><i class="fa-solid fa-link"></i> Từ vựng V-ACT theo chủ đề</a>
+                        <span class="tag">V-ACT</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Lập trình & Công cụ -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-code"></i></div>
+                    <h3>Công cụ & Notebook</h3>
+                </div>
+                <ul class="resource-list">
+                    <li class="resource-item">
+                        <a href="#"><i class="fa-brands fa-python"></i> Python cơ bản cho người mới</a>
+                        <span class="tag">Code</span>
+                    </li>
+                    <li class="resource-item">
+                        <a href="#"><i class="fa-solid fa-note-sticky"></i> NotebookLM Study Prompts</a>
+                        <span class="tag">AI Tool</span>
+                    </li>
+                    <li class="resource-item">
+                        <a href="#"><i class="fa-solid fa-border-all"></i> Template Slide Canva</a>
+                        <span class="tag">Canva</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Interactive Study Tools -->
+        <h2 class="section-title" id="tools"><i class="fa-solid fa-clock-rotate-left"></i> Công cụ hỗ trợ học tập</h2>
+        <div class="tools-grid">
+            
+            <!-- Pomodoro Timer -->
+            <div class="card pomodoro-container">
+                <div class="card-header" style="justify-content: center;">
+                    <div class="card-icon"><i class="fa-solid fa-stopwatch"></i></div>
+                    <h3>Đồng hồ Pomodoro (25 phút)</h3>
+                </div>
+                <div class="timer-display" id="timer">25:00</div>
+                <div class="timer-btn-group">
+                    <button class="btn" id="startBtn" onclick="toggleTimer()">Bắt đầu</button>
+                    <button class="btn btn-outline" onclick="resetTimer()">Đặt lại</button>
+                </div>
+            </div>
+
+            <!-- Quick To-Do List -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-list-check"></i></div>
+                    <h3>Danh sách việc cần làm hôm nay</h3>
+                </div>
+                <div class="todo-input-group">
+                    <input type="text" id="todoInput" placeholder="Thêm bài tập / mục tiêu mới...">
+                    <button class="btn" onclick="addTodo()">Thêm</button>
+                </div>
+                <ul class="todo-list" id="todoList">
+                    <li class="todo-item">
+                        <label style="display:flex; align-items:center; gap:8px;">
+                            <input type="checkbox" onchange="toggleTask(this)">
+                            <span>Giải 1 đề thi thử Toán</span>
+                        </label>
+                        <button class="delete-btn" onclick="removeTask(this)"><i class="fa-solid fa-trash"></i></button>
+                    </li>
+                    <li class="todo-item">
+                        <label style="display:flex; align-items:center; gap:8px;">
+                            <input type="checkbox" onchange="toggleTask(this)">
+                            <span>Đọc lại lý thuyết Hóa học</span>
+                        </label>
+                        <button class="delete-btn" onclick="removeTask(this)"><i class="fa-solid fa-trash"></i></button>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2026 Góc Học Tập Cá Nhân. Được thiết kế tối ưu cho học tập & sáng tạo.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Functions -->
+    <script>
+        // --- Pomodoro Timer Script ---
+        let timerInterval = null;
+        let timeLeft = 25 * 60; // 25 phút
+        let isRunning = false;
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeLeft 
