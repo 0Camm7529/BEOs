@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sinh Học - Danh Sách Đề Thi | BEOs Studio</title>
+    <title>Azota - Chọn Môn Học | BEOs Studio</title>
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,8 +17,8 @@
             --card-bg: rgba(255, 255, 255, 0.04);
             --card-border: rgba(255, 255, 255, 0.08);
             --card-hover-bg: rgba(255, 255, 255, 0.07);
-            --primary-accent: #10b981;
-            --primary-glow: rgba(16, 185, 129, 0.35);
+            --primary-accent: #6366f1;
+            --primary-glow: rgba(99, 102, 241, 0.35);
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
             --text-dim: #64748b;
@@ -51,7 +51,7 @@
             width: 100%;
             max-width: 500px;
             height: 300px;
-            background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, rgba(99, 102, 241, 0.08) 50%, transparent 80%);
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.18) 0%, rgba(168, 85, 247, 0.08) 50%, transparent 80%);
             top: 0;
             left: 50%;
             transform: translateX(-50%);
@@ -130,7 +130,7 @@
         .back-btn:active, .back-btn:hover {
             color: var(--text-main);
             background: var(--card-hover-bg);
-            border-color: rgba(16, 185, 129, 0.35);
+            border-color: rgba(99, 102, 241, 0.35);
         }
 
         .main-content {
@@ -154,7 +154,7 @@
             color: var(--text-main);
             letter-spacing: -0.3px;
             line-height: 1.4;
-            background: linear-gradient(135deg, #34d399 0%, #a7f3d0 100%);
+            background: linear-gradient(135deg, #f8fafc 0%, #cbd5e1 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -213,11 +213,11 @@
             top: 20%;
             height: 60%;
             width: 3px;
-            background: var(--primary-accent);
+            background: #10b981;
             border-radius: 0 4px 4px 0;
             opacity: 0;
             transition: opacity 0.2s ease;
-            box-shadow: 0 0 10px var(--primary-accent);
+            box-shadow: 0 0 10px #10b981;
         }
 
         .app-card:active, .app-card:hover {
@@ -246,6 +246,9 @@
             justify-content: center;
             font-size: 1.25rem;
             flex-shrink: 0;
+        }
+
+        .icon-biology {
             background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.1));
             color: #34d399;
             border: 1px solid rgba(16, 185, 129, 0.2);
@@ -292,10 +295,10 @@
         }
 
         .app-card:hover .action-badge {
-            background: var(--primary-accent);
-            border-color: var(--primary-accent);
+            background: #10b981;
+            border-color: #10b981;
             color: #ffffff;
-            box-shadow: 0 0 12px var(--primary-glow);
+            box-shadow: 0 0 12px rgba(16, 185, 129, 0.4);
         }
 
         .footer {
@@ -324,36 +327,36 @@
     <div class="ambient-glow"></div>
 
     <header class="navbar">
-        <a href="../../index.html" class="brand-logo-group">
+        <a href="../index.html" class="brand-logo-group">
             <div class="logo-box">
                 <img src="https://i.ibb.co/wZCvWpt4/file-000000007c6071fa9e41573272c5624a.png" alt="BEOs Logo" class="logo-img">
             </div>
             <span class="brand-title">BEOs Studio</span>
         </a>
         <a href="../index.html" class="back-btn">
-            <i class="fa-solid fa-arrow-left"></i> Chọn môn
+            <i class="fa-solid fa-house"></i> Trang chủ
         </a>
     </header>
 
     <main class="main-content">
         <div class="hero-section">
-            <p class="hero-text">Môn Sinh Học - Danh sách đề thi</p>
+            <p class="hero-text">Azota - Danh sách môn học</p>
         </div>
 
         <div class="category-header">
             <h2 class="category-title">
-                <i class="fa-solid fa-file-signature"></i> Đề hiện có
+                <i class="fa-solid fa-book-bookmark"></i> Chọn Môn Học
             </h2>
         </div>
 
         <div class="app-list">
-            <a href="giua-ky-1/index.html" class="app-card">
+            <a href="sinh-hoc/index.html" class="app-card">
                 <div class="app-main-info">
-                    <div class="app-icon-wrapper">
-                        <i class="fa-solid fa-file-pen"></i>
+                    <div class="app-icon-wrapper icon-biology">
+                        <i class="fa-solid fa-dna"></i>
                     </div>
                     <div class="app-text">
-                        <span class="app-title">Ôn tập Giữa kì 1</span>
+                        <span class="app-title">Sinh Học</span>
                     </div>
                 </div>
                 <div class="action-badge">
