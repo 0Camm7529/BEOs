@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin Học - Danh Sách Đề | BEOs Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(255, 255, 255, 0.04);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --card-hover-bg: rgba(255, 255, 255, 0.07);
+            --primary-accent: #06b6d4;
+            --primary-glow: rgba(6, 182, 212, 0.35);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-dim: #64748b;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .ambient-glow {
+            position: fixed;
+            width: 100%;
+            max-width: 500px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, rgba(99, 102, 241, 0.08) 50%, transparent 80%);
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 0;
+            pointer-events: none;
+            filter: blur(60px);
+        }
+
+        .navbar {
+            width: 100%;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 10;
+            border-bottom: 1px solid var(--card-border);
+            background: rgba(11, 15, 25, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            position: sticky;
+            top: 0;
+        }
+
+        .brand-logo-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-box {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 4px;
+            flex-shrink: 0;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+
+        .brand-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: -0.4px;
+            background: linear-gradient(135deg, #ffffff 40%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 10px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            transition: all 0.2s ease;
+        }
+
+        .back-btn:active, .back-btn:hover {
+            color: var(--text-main);
+            background: var(--card-hover-bg);
+            border-color: rgba(6, 182, 212, 0.35);
+        }
+
+        .main-content {
+            flex: 1;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 24px 16px;
+            display: flex;
+            flex-direction: column;
+            z-index: 1;
+        }
+
+        .hero-section {
+            margin-bottom: 20px;
+        }
+
+        .hero-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: -0.3px;
+            line-height: 1.4;
+            background: linear-gradient(135deg, #22d3ee 0%, #67e8f9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding: 0 2px;
+        }
+
+        .category-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .category-title i {
+            color: var(--primary-accent);
+            font-size: 0.95rem;
+        }
+
+        .app-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .app-card {
+            width: 100%;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 14px 16px;
+            text-decoration: none;
+            color: var(--text-main);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 20%;
+            height: 60%;
+            width: 3px;
+            background: var(--primary-accent);
+            border-radius: 0 4px 4px 0;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            box-shadow: 0 0 10px var(--primary-accent);
+        }
+
+        .app-card:active, .app-card:hover {
+            background: var(--card-hover-bg);
+            border-color: rgba(6, 182, 212, 0.35);
+            transform: scale(0.99);
+        }
+
+        .app-card:hover::before {
+            opacity: 1;
+        }
+
+        .app-main-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 0;
+        }
+
+        .app-icon-wrapper {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(14, 116, 144, 0.1));
+            color: #22d3ee;
+            border: 1px solid rgba(6, 182, 212, 0.2);
+        }
+
+        .app-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            min-width: 0;
+        }
+
+        .app-title {
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: var(--text-main);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .app-description {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .action-badge {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+            margin-left: 8px;
+        }
+
+        .app-card:hover .action-badge {
+            background: var(--primary-accent);
+            border-color: var(--primary-accent);
+            color: #ffffff;
+            box-shadow: 0 0 12px var(--primary-glow);
+        }
+
+        .footer {
+            margin-top: auto;
+            padding: 24px 16px 20px;
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.725rem;
+            font-weight: 500;
+            z-index: 1;
+            line-height: 1.5;
+            width: 100%;
+        }
+
+        @media (min-width: 641px) {
+            .navbar { padding: 20px 40px; }
+            .brand-title { font-size: 1.4rem; }
+            .main-content { padding: 40px 20px; }
+            .hero-text { font-size: 1.5rem; }
+            .app-card:hover { transform: translateY(-2px); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-glow"></div>
+
+    <header class="navbar">
+        <a href="../../index.html" class="brand-logo-group">
+            <div class="logo-box">
+                <img src="https://i.ibb.co/wZCvWpt4/file-000000007c6071fa9e41573272c5624a.png" alt="BEOs Logo" class="logo-img">
+            </div>
+            <span class="brand-title">BEOs Studio</span>
+        </a>
+        <a href="../index.html" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i> Chọn môn
+        </a>
+    </header>
+
+    <main class="main-content">
+        <div class="hero-section">
+            <p class="hero-text">Môn Tin Học - Danh sách đề thi</p>
+        </div>
+
+        <div class="category-header">
+            <h2 class="category-title">
+                <i class="fa-solid fa-file-signature"></i> Đề thi hiện có
+            </h2>
+        </div>
+
+        <div class="app-list">
+            <!-- Thay đường dẫn Azota đề thi thực tế vào href bên dưới -->
+            <a href="https://azota.vn" class="app-card">
+                <div class="app-main-info">
+                    <div class="app-icon-wrapper">
+                        <i class="fa-solid fa-file-pen"></i>
+                    </div>
+                    <div class="app-text">
+                        <span class="app-title">Ôn tập kiểm tra giữa kỳ</span>
+                        <span class="app-description">Đề ôn tập Giữa kỳ 1 gồm 2 phần</span>
+                    </div>
+                </div>
+                <div class="action-badge">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 BEOs Studio. Bản quyền thuộc về BEOs Studio. Design UI/UX by AI.</p>
+    </footer>
+
+</body>
+</html>
+  
