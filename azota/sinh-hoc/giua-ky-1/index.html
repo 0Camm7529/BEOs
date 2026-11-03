@@ -317,6 +317,41 @@
             .hero-text { font-size: 1.5rem; }
             .app-card:hover { transform: translateY(-2px); }
         }
+/* Khối cảnh báo (Warning Box) */
+.warning-box {
+    width: 100%;
+    background: rgba(245, 158, 11, 0.06);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    border-radius: 14px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.warning-icon-wrapper {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    background: rgba(245, 158, 11, 0.15);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    color: #fbbf24;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+}
+
+.warning-text {
+    font-size: 0.825rem;
+    font-weight: 500;
+    color: #fef08a;
+    line-height: 1.4;
+}
     </style>
 </head>
 <body>
@@ -393,6 +428,13 @@
                 </div>
             </a>
         </div>
+<!-- Khối cảnh báo đáp án -->
+<div class="warning-box">
+    <div class="warning-icon-wrapper">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+    </div>
+    <p class="warning-text">Đáp án có thể sai do lấy đáp án trong đề mà đáp án trong đề sai</p>
+</div>
     </main>
 
     <footer class="footer">
